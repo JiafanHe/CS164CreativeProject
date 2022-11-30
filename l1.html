@@ -6,6 +6,7 @@
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
     <script src="https://unpkg.com/aframe-template-component@^3.1.1/dist/aframe-template-component.min.js"></script> 
     <script src="follow.js"></script>
+    <script src="scorekeeper.js"></script>
 
   </head>
   <body>
@@ -136,10 +137,11 @@
       position="20 5 30"
     ></a-entity>
     
-
-    <!-- avatar -->
+      
+      <!-- avatar -->
     <a-entity  id="avatar" 
             movement-controls="fly:false" 
+            scorekeeper="timeleft:60; winscore:35"
             look-controls="pointerLockEnabled:false"
             wasd-controls>
         <a-box 
@@ -148,10 +150,14 @@
             position="0 0 0" width="3" height="1" depth="10"></a-box>
         <a-entity 
             camera position="0 1.6 0"
-        ></a-camera>
+             ></a-entity>
+        <a-entity id="hud"
+             health="10"
+             score="0"
+             text="width:3; value: Start Game!;"
+             position="0.75 2 -3"
+        ></a-entity>
     </a-entity>
-
-
 
     
   
