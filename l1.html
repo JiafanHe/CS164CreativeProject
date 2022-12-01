@@ -36,14 +36,24 @@
         material="src:seamless_brick-512x512.png; repeat:40 40"
     ></a-box>
 
-    <a-box
+    <!-- <a-box
       id="exit" 
       width="5" height="5" depth="5"
       follow="target:#avatar; speed:3; url:l1.html; dist:5"
       ammo-body="type:kinematic" ammo-shape="type:box"
       material="src:wood.jpg; color:red;  repeat:1 1"  
       position="-50 2.5 -50">
-    </a-box>
+    </a-box> -->
+
+    <a-entity
+      id="exitNPC"
+      gltf-model="npc.gltf"
+      animation-mixer="clip:jump"
+      follow="target:#avatar; speed:10; url:l1.html; dist:10"
+      position="-50 0 -50"
+      scale="5 5 5"
+      rotation="0 45 0"
+    ></a-entity>
 
    
     <!-- walls are defined with mixins but ammo-body,ammo-shape
@@ -51,8 +61,8 @@
     -->
     <a-entity id='northwall' mixin="wall" 
               ammo-body="type:static;" ammo-shape="type:box"
-              geometry="primitive:box;width:100; height:10; depth:1"
-              position="0 5 -50"></a-entity>
+              geometry="primitive:box;width:96; height:10; depth:1"
+              position="2 5 -50"></a-entity>
     <a-entity id='southwall' mixin="wall" 
               ammo-body="type:static;" ammo-shape="type:box"
               geometry="primitive:box;width:100; height:10; depth:1"
@@ -64,9 +74,9 @@
               position="50 5 0"></a-entity>
     <a-entity id='westwall' mixin="wall" 
               ammo-body="type:static;" ammo-shape="type:box"
-              geometry="primitive:box;width:100; height:10; depth:1"
+              geometry="primitive:box;width:96; height:10; depth:1"
               rotation="0 90 0"
-              position="-50 5 0"></a-entity>
+              position="-50 5 2"></a-entity>
 
 
 
