@@ -6,7 +6,7 @@
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
     <script src="https://unpkg.com/aframe-template-component@^3.1.1/dist/aframe-template-component.min.js"></script> 
     <script src="follow.js"></script>
-
+    <script src="scorekeeper.js"></script>
   </head>
   <body>
     <!--
@@ -20,6 +20,8 @@
                     geometry="primitive:box;width:190; height:20; depth:1"
                     material="src:wood.jpg;  repeat:40 4"       
                     ></a-mixin>
+        <img id="nightsky"
+                    src="https://cdn.glitch.com/9baeb756-4dfe-40ae-a61f-52b72510282b%2Fnightsky.png?v=1603277760890">
     </a-assets>
 
     <a-entity template="src: #boxTemplate"></a-entity>
@@ -55,7 +57,7 @@
     <a-entity id='mazewall1' mixin="wall" 
               ammo-body="type:kinematic;" ammo-shape="type:box" geometry="width:40; height:10; depth:1" collideConnected="true"
               constraint="target: #avatar;"
-              position="10 5 0"></a-entity>
+              position="10 -10 0"></a-entity>
 
     <a-entity id='mazewall2' mixin="wall" 
               ammo-body="type:kinematic;" ammo-shape="type:box" geometry="width:40; height:10; depth:1" collideConnected="true"
@@ -67,6 +69,21 @@
               constraint="target: #avatar;" rotation="0 90 0"
               position="-50 5 0"></a-entity>
     
+    <a-entity id='mazewall3' mixin="wall" 
+              ammo-body="type:kinematic;" ammo-shape="type:box" geometry="width:40; height:10; depth:1" collideConnected="true"
+              constraint="target: #avatar;" rotation="0 90 0"
+              position="-30 5 0"></a-entity>
+    
+    <a-entity id='mazewall3' mixin="wall" 
+              ammo-body="type:kinematic;" ammo-shape="type:box" geometry="width:40; height:10; depth:1" collideConnected="true"
+              constraint="target: #avatar;" rotation="0 90 0"
+              position="30 5 0"></a-entity>
+    
+    <a-entity id='mazewall3' mixin="wall" 
+              ammo-body="type:kinematic;" ammo-shape="type:box" geometry="width:40; height:10; depth:1" collideConnected="true"
+              constraint="target: #avatar;" rotation="0 180 0"
+              position="30 5 0"></a-entity>
+    
 
 
     
@@ -74,6 +91,7 @@
     <!-- avatar -->
     <a-entity  id="avatar" 
             movement-controls="fly:false" 
+            scorekeeper="timeleft:60; winscore:35"
             look-controls="pointerLockEnabled:false"
             wasd-controls>
         <a-box 
@@ -83,6 +101,12 @@
         <a-entity 
             camera position="0 1.6 0"
              ></a-camera>
+        <a-entity id="hud"
+             health="10"
+             score="0"
+             text="width:3; value: Start Game!;"
+             position="0.75 2 -3"
+        ></a-entity>
     </a-entity>
     
     <a-sphere
@@ -97,7 +121,8 @@
     <a-box follow="target:#sphere;url:l2.html; speed:5; dist:10" ammo-body="type:dynamic" ammo-shape="type:box"
         material="color:red;  repeat:1 1" position="-50 0 -10">
     </a-box>
-  
+    
+    <a-sky src="#nightsky"></a-sky>
   </a-scene>
   </body>
   </html>
