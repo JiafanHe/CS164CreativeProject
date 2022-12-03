@@ -22,6 +22,7 @@
                     ></a-mixin>
         <img id="nightsky"
                     src="https://cdn.glitch.com/9baeb756-4dfe-40ae-a61f-52b72510282b%2Fnightsky.png?v=1603277760890">
+        <a-asset-item id="newman" src="newman.gltf"></a-asset-item>
     </a-assets>
 
     <a-entity template="src: #boxTemplate"></a-entity>
@@ -86,7 +87,8 @@
     
 
 
-    
+      <a-entity position="0 1 -10" animation-mixer="clip:shake" gltf-model="#newman" rotation="0 -90 0">
+      </a-entity>
 
     <!-- avatar -->
     <a-entity  id="avatar" 
