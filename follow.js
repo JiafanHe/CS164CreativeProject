@@ -40,7 +40,7 @@ AFRAME.registerComponent('follow', {
     var distance = directionVec3.length();
 
     // If the target is close, then end the game!
-    if (distance<0.5) {
+    if (distance<5) {
       this.data.target.object3D.position.y = 10 // move the avatar above the board!
       window.location.href = this.data.url; 
     } else if (distance>this.data.dist){
